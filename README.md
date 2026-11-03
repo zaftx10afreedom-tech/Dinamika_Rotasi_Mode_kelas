@@ -1,0 +1,1 @@
+# Dinamika_Rotasi_Mode_kelas
