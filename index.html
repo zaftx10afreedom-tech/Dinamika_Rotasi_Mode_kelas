@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1527">
+<meta name="description" content="Dinamika Rotasi dan Kesetimbangan Benda Tegar, Mode Presentasi Kelas khusus Panel Interaktif Digital (PID).">
+<title>Dinamika Rotasi | Mode Presentasi Kelas PID</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app" class="shell">
+ <header class="topline">
+  <div class="mark" aria-hidden="true">F<span>✦</span></div>
+  <div class="top-title"><strong>DINAMIKA ROTASI</strong><span>FISIKA SMA/MA · PRESENTASI KELAS PID</span></div>
+  <div class="header-counter" id="headerCounter">01 / 11</div>
+ </header>
+ <main class="presenter" id="presenter">
+  <section class="slide-stage" id="slideStage" aria-label="Bidang presentasi interaktif">
+   <div class="slide-frame" id="slideFrame">
+    <img id="slideImage" alt="Slide 1: Dinamika Rotasi dan Kesetimbangan Benda Tegar" src="slides/slide-01.webp" draggable="false">
+    <canvas id="inkCanvas" aria-label="Anotasi guru pada slide"></canvas>
+   </div>
+   <button id="edgePrev" class="edge-nav left" aria-label="Slide sebelumnya" title="Slide sebelumnya">‹</button>
+   <button id="edgeNext" class="edge-nav right" aria-label="Slide berikutnya" title="Slide berikutnya">›</button>
+   <div class="slide-badge" id="slideBadge">01 / 11</div>
+   <div class="slide-topic" id="slideTopic">Dinamika Rotasi dan Kesetimbangan Benda Tegar</div>
+   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </section>
+ </main>
+ <nav class="control-dock" id="controlDock" aria-label="Bilah alat presentasi kelas">
+  <div class="group">
+   <button type="button" id="prevBtn" class="control icon" aria-label="Slide sebelumnya" title="Slide sebelumnya">‹</button>
+   <span id="dockCount" class="dock-count" aria-live="polite">01 / 11</span>
+   <button type="button" id="nextBtn" class="control icon" aria-label="Slide berikutnya" title="Slide berikutnya">›</button>
+  </div>
+  <div class="divider"></div>
+  <button type="button" id="listBtn" class="control labeled" title="Daftar slide">▦ <span>Slide</span></button>
+  <div class="divider"></div>
+  <button type="button" id="penBtn" class="control labeled" aria-pressed="false" title="Pena digital">✎ <span>Pena</span></button>
+  <button type="button" id="laserBtn" class="control labeled" aria-pressed="false" title="Penunjuk laser">◎ <span>Laser</span></button>
+  <button type="button" id="undoBtn" class="control icon" title="Urungkan coretan" aria-label="Urungkan coretan">↶</button>
+  <button type="button" id="clearBtn" class="control icon" title="Hapus coretan slide saat ini" aria-label="Hapus coretan slide saat ini">⌫</button>
+  <div class="divider"></div>
+  <button type="button" id="zoomOutBtn" class="control icon" title="Perkecil" aria-label="Perkecil">−</button>
+  <button type="button" id="zoomFitBtn" class="control icon" title="Ukuran asli" aria-label="Atur ulang pembesaran">⊙</button>
+  <button type="button" id="zoomInBtn" class="control icon" title="Perbesar" aria-label="Perbesar">+</button>
+  <button type="button" id="fullBtn" class="control icon" title="Layar penuh" aria-label="Layar penuh">⛶</button>
+  <button type="button" id="helpBtn" class="control icon" title="Bantuan" aria-label="Bantuan">?</button>
+  <button type="button" id="hideBtn" class="control icon" title="Sembunyikan bilah alat" aria-label="Sembunyikan bilah alat">⌄</button>
+ </nav>
+ <button id="revealBtn" class="reveal" type="button" hidden>☰ Alat</button>
+ <div class="laser-dot" id="laserDot" hidden></div>
+</div>
+<div class="backdrop" id="slidesModal" hidden role="dialog" aria-modal="true" aria-labelledby="slidesHeading">
+ <section class="modal panel-grid">
+  <header class="modal-head"><div><small>MODE PRESENTASI KELAS</small><h2 id="slidesHeading">Daftar Slide</h2></div><button class="close" data-close="slidesModal" aria-label="Tutup daftar slide">×</button></header>
+  <div class="thumb-grid" id="thumbGrid"></div>
+ </section>
+</div>
+<div class="backdrop" id="helpModal" hidden role="dialog" aria-modal="true" aria-labelledby="helpHeading">
+ <section class="modal panel-help">
+  <header class="modal-head"><div><small>PANDUAN LAYAR SENTUH</small><h2 id="helpHeading">Menggunakan PID</h2></div><button class="close" data-close="helpModal" aria-label="Tutup panduan">×</button></header>
+  <div class="help-body"><p>Aplikasi langsung berjalan dalam <b>Mode Presentasi Kelas</b>. Semua slide dapat dikendalikan menggunakan jari atau pena digital pada PID.</p>
+   <div class="help-grid">
+    <div><strong>☝ Geser satu jari</strong><span>Geser ke kiri untuk slide berikutnya dan ke kanan untuk sebelumnya.</span></div>
+    <div><strong>✌ Cubit dua jari</strong><span>Perbesar atau perkecil slide. Tarik tampilan saat diperbesar.</span></div>
+    <div><strong>✎ Pena</strong><span>Ketuk Pena untuk menulis; geseran tidak memindahkan slide saat menulis.</span></div>
+    <div><strong>◎ Laser</strong><span>Arahkan jari atau penunjuk ke bagian materi tanpa meninggalkan coretan.</span></div>
+    <div><strong>▦ Slide</strong><span>Pilih slide tertentu dari pratinjau agar tidak perlu maju satu per satu.</span></div>
+    <div><strong>⛶ Layar penuh</strong><span>Isi layar PID dengan presentasi. Browser mungkin meminta interaksi pengguna.</span></div>
+   </div>
+   <p class="hint">Pintasan papan ketik: ←/→ untuk navigasi, Home/End ke awal/akhir, F layar penuh, B daftar slide, P pena, L laser, T menampilkan alat, dan Esc menutup dialog.</p>
+  </div>
+  <footer class="modal-foot"><button class="primary" data-close="helpModal">Mengerti</button></footer>
+ </section>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
